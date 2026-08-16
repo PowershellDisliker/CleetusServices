@@ -1,0 +1,22 @@
+services:
+  minecraft:
+    container_name: minecraft
+    ports:
+      - 25565:25565
+    volumes:
+      - minecraft:/data
+
+    build: ./minecraft
+
+  project-zomboid:
+    container_name: project-zomboid
+    ports:
+      - 16261:16261/udp
+      - 16262:16262/udp
+
+    build: ./project-zomboid
+
+
+volumes:
+  minecraft:
+  project-zomboid:
