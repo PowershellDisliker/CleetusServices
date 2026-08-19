@@ -9,4 +9,4 @@ rsync -av --ignore-existing /game_files/ /data/
 
 echo "Starting server..."
 # Execute the start script passing any CMD arguments
-exec /mounted_drive/start-server.sh "$@"
+exec /data/start-server.sh "$@"
