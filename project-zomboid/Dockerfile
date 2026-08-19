@@ -11,6 +11,10 @@ RUN steamcmd +login anonymous +quit && \
 
 FROM docker.io/amazoncorretto:latest
 
-COPY --from=downloader /content /
+COPY --from=downloader /content /game_files
 
-CMD ["./start-server.sh", "-adminpassword", "ThisIsMyAdminPassword"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["./data/start-server.sh", "-adminpassword", "ThisIsMyAdminPassword"]
