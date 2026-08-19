@@ -11,6 +11,8 @@ RUN steamcmd +login anonymous +quit && \
 
 FROM docker.io/amazoncorretto:latest
 
+RUN yum update -y && yum install -y rsync && yum clean all
+
 COPY --from=downloader /content /game_files
 
 COPY entrypoint.sh /entrypoint.sh
