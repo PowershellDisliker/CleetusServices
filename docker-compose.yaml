@@ -2,7 +2,8 @@ services:
   minecraft:
     container_name: minecraft
     ports:
-      - 25565:25565
+      - 25565:25565/tcp
+      - 25565:25565/udp
     volumes:
       - minecraft:/data
     stdin_open: true
@@ -14,6 +15,7 @@ services:
       container_name: project-zomboid
       ports:
         - 16261:16261/udp
+        - 16261:16261/tcp
         - 16262:16262/udp
       volumes:
         - project-zomboid-game:/data
