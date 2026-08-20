@@ -11,6 +11,18 @@ services:
 
     build: ./minecraft
 
+  creative-minecraft:
+    container_name: creative-minecraft
+    ports:
+      - 25566:25566/tcp
+      - 25566:25566/udp
+    volumes:
+      - creative-minecraft:/data
+    stdin_open: true
+    tty: true
+
+    build: ./minecraft
+
   project-zomboid:
       container_name: project-zomboid
       ports:
@@ -24,8 +36,8 @@ services:
       tty: true
       build: ./project-zomboid
 
-
 volumes:
   minecraft:
+  creative-minecraft:
   project-zomboid-game:
   project-zomboid-saves:
